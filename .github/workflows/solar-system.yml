@@ -15,8 +15,7 @@ env:
 jobs:
     unit-testing:
       name: Unit Testing
-      permissions: 
-        packages: write
+
       services:
         mongo-db:
           image: siddharth67/mongo-db:non-prod
@@ -30,10 +29,10 @@ jobs:
 
       strategy:
         matrix:
-          version: [18, 19, 20]
+          version: [18, 20]
           os: [ubuntu-latest, macos-latest]
           exclude: 
-            - version: 19
+            - version: 18
               os: macos-latest
 
       runs-on: ${{ matrix.os }}
